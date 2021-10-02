@@ -22,6 +22,15 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if [[ -x "${ZDOTDIR:-$HOME}/.pyenv/bin/pyenv" ]] ; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
 
+if [[ -s "${ZDOTDIR:-$HOME}/.asdf/asdf.sh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.asdf/asdf.sh"
+  # append completions to fpath
+  fpath=("${ZDOTDIR:-$HOME}/.asdf/completions" $fpath)
+  # initialise completions with ZSH's compinit
+  autoload -Uz compinit && compinit
+fi
