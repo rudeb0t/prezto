@@ -34,3 +34,10 @@ if [[ -s "${ZDOTDIR:-$HOME}/.asdf/asdf.sh" ]]; then
   # initialise completions with ZSH's compinit
   autoload -Uz compinit && compinit
 fi
+
+DIRENV_BIN=$(which direnv)
+
+if [[ -x $DIRENV_BIN ]]; then
+  eval "$(direnv hook zsh)"
+fi
+
