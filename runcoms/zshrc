@@ -27,6 +27,19 @@ if [[ -x "${ZDOTDIR:-$HOME}/.pyenv/bin/pyenv" ]] ; then
   eval "$(pyenv virtualenv-init -)"
 fi
 
+if [[ -x "/opt/homebrew/bin/pyenv" ]] ; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
+
+if [[ -s "/opt/homebrew/opt/asdf/libexec/asdf.sh" ]]; then
+  source "/opt/homebrew/opt/asdf/libexec/asdf.sh"
+  # append completions to fpath
+  fpath=("/opt/homebrew/opt/asdf/libexec/completions" $fpath)
+  # initialise completions with ZSH's compinit
+  autoload -Uz compinit && compinit
+fi
+
 if [[ -s "${ZDOTDIR:-$HOME}/.asdf/asdf.sh" ]]; then
   source "${ZDOTDIR:-$HOME}/.asdf/asdf.sh"
   # append completions to fpath
