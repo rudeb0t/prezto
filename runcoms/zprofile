@@ -52,6 +52,7 @@ path=(
   $HOME/{,s}bin(N)
   /opt/{homebrew,local}/{,s}bin(N)
   /usr/local/{,s}bin(N)
+  ${ZDOTDIR:-$HOME}/.local/bin
   $path
 )
 
@@ -70,6 +71,10 @@ fi
 # Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
 if [[ -z "$LESSOPEN" ]] && (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
+fi
+
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 if [[ -d "${ZDOTDIR:-$HOME}/.pyenv" ]]; then
