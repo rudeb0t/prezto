@@ -54,3 +54,10 @@ if [[ -x $DIRENV_BIN ]]; then
   eval "$(direnv hook zsh)"
 fi
 
+
+TERRAFORM_BIN=$(which terraform)
+if [[ -x $TERRAFORM_BIN ]]; then
+  autoload -U +X bashcompinit && bashcompinit
+  complete -o nospace -C /opt/homebrew/bin/terraform terraform
+fi
+

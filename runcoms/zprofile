@@ -9,6 +9,8 @@
 # Browser
 #
 
+export GEM_HOME=$HOME/.gem
+
 if [[ -z "$BROWSER" && "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi
@@ -50,6 +52,7 @@ typeset -gU cdpath fpath mailpath path
 # Set the list of directories that Zsh searches for programs.
 path=(
   $HOME/{,s}bin(N)
+  $GEM_HOME/bin
   /opt/{homebrew,local}/{,s}bin(N)
   /usr/local/{,s}bin(N)
   ${ZDOTDIR:-$HOME}/.local/bin
@@ -81,4 +84,8 @@ if [[ -d "${ZDOTDIR:-$HOME}/.pyenv" ]]; then
   export PYENV_ROOT="${ZDOTDIR:-$HOME}/.pyenv"
   export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init --path)"
+fi
+
+if [[ -d "${ZDOTDIR:-$HOME}/Tools/flutter/bin" ]]; then
+  export PATH="${ZDOTDIR:-$HOME}/Tools/flutter/bin:$PATH"
 fi
