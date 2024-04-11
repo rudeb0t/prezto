@@ -89,3 +89,7 @@ fi
 if [[ -d "${ZDOTDIR:-$HOME}/Tools/flutter/bin" ]]; then
   export PATH="${ZDOTDIR:-$HOME}/Tools/flutter/bin:$PATH"
 fi
+
+if [[ -d "${ZDOTDIR:-$HOME}/Tools/firebase/bin" ]]; then
+  export PATH="${ZDOTDIR:-$HOME}/Tools/firebase/bin:$PATH"
+fi
