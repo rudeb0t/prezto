@@ -93,3 +93,6 @@ fi
 if [[ -d "${ZDOTDIR:-$HOME}/Tools/firebase/bin" ]]; then
   export PATH="${ZDOTDIR:-$HOME}/Tools/firebase/bin:$PATH"
 fi
+if [[ -d "${ZDOTDIR:-$HOME}/.pub-cache/bin" ]]; then
+  export PATH="${ZDOTDIR:-$HOME}/.pub-cache/bin:$PATH"
+fi
