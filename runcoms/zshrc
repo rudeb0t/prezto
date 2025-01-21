@@ -61,3 +61,7 @@ if [[ -x $TERRAFORM_BIN ]]; then
   complete -o nospace -C /opt/homebrew/bin/terraform terraform
 fi
 
+NVIM_BIN=$(which nvim)
+if [[ -x $NVIM_BIN ]]; then
+  alias vim=$NVIM_BIN
+fi
