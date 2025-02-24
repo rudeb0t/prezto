@@ -82,17 +82,22 @@ fi
 
 if [[ -d "${ZDOTDIR:-$HOME}/.pyenv" ]]; then
   export PYENV_ROOT="${ZDOTDIR:-$HOME}/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
+  export PATH="${PYENV_ROOT}/bin:${PATH}"
   eval "$(pyenv init --path)"
 fi
 
 if [[ -d "${ZDOTDIR:-$HOME}/Tools/flutter/bin" ]]; then
-  export PATH="${ZDOTDIR:-$HOME}/Tools/flutter/bin:$PATH"
+  export PATH="${ZDOTDIR:-$HOME}/Tools/flutter/bin:${PATH}"
 fi
 
 if [[ -d "${ZDOTDIR:-$HOME}/Tools/firebase/bin" ]]; then
-  export PATH="${ZDOTDIR:-$HOME}/Tools/firebase/bin:$PATH"
+  export PATH="${ZDOTDIR:-$HOME}/Tools/firebase/bin:${PATH}"
 fi
+
 if [[ -d "${ZDOTDIR:-$HOME}/.pub-cache/bin" ]]; then
-  export PATH="${ZDOTDIR:-$HOME}/.pub-cache/bin:$PATH"
+  export PATH="${ZDOTDIR:-$HOME}/.pub-cache/bin:${PATH}"
+fi
+
+if [[ -d "${ZDOTDIR:-$HOME}/.asdf/shims" ]]; then
+  export PATH="${ZDOTDIR:-$HOME}/.asdf/shims:${PATH}"
 fi
