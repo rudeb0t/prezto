@@ -101,3 +101,8 @@ fi
 if [[ -d "${ZDOTDIR:-$HOME}/.asdf/shims" ]]; then
   export PATH="${ZDOTDIR:-$HOME}/.asdf/shims:${PATH}"
 fi
+
+if [[ -d "${ZDOTDIR:-$HOME}/.dotnet/tools" ]]; then
+  export PATH="${ZDOTDIR:-$HOME}/.dotnet/tools:${PATH}"
+fi
+
