@@ -106,11 +106,11 @@ if [[ -d "${ZDOTDIR:-$HOME}/.dotnet/tools" ]]; then
   export PATH="${ZDOTDIR:-$HOME}/.dotnet/tools:${PATH}"
 fi
 
-if [[ -d "${ZDOTDIR:-$HOME}.lmstudio/bin" ]]; then
-  export PATH="$PATH:/Users/nimrod/.lmstudio/bin"
+if [[ -d "${ZDOTDIR:-$HOME}/.lmstudio/bin" ]]; then
+  export PATH="$PATH:${ZDOTDIR:-$HOME}/.lmstudio/bin"
 fi
 
-if [[ -f "${ZDOTDIR:-$HOME}.zprofile-local" ]]; then
-  source "${ZDOTDIR:-$HOME}.zprofile-local"
+if [[ -f "${ZDOTDIR:-$HOME}/.zprofile-local" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprofile-local"
 fi
 
