@@ -110,6 +110,14 @@ if [[ -d "${ZDOTDIR:-$HOME}/.lmstudio/bin" ]]; then
   export PATH="$PATH:${ZDOTDIR:-$HOME}/.lmstudio/bin"
 fi
 
+if [[ -x "${ZDOTDIR:-$HOME}/.orbstack/shell/init.zsh" ]]; then
+  source ${ZDOTDIR:-$HOME}/.orbstack/shell/init.zsh 2>/dev/null || :
+fi
+
+if [[ -d "${ZDOTDIR:-$HOME}/.local/share/pnpm/bin" ]]; then
+  export PATH="$PATH:${ZDOTDIR:-$HOME}/.local/share/pnpm/bin"
+fi
+
 if [[ -f "${ZDOTDIR:-$HOME}/.zprofile-local" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile-local"
 fi
